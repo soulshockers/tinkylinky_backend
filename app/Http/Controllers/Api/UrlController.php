@@ -44,6 +44,7 @@ class UrlController extends Controller
     #[Authenticated]
     #[ResponseFromApiResource(UrlResource::class, Url::class)]
     #[Response(['message' => 'Unauthenticated.'], ApiResponse::HTTP_UNAUTHORIZED, 'Unauthenticated')]
+    #[Response(status: ApiResponse::HTTP_NOT_FOUND, description: 'Not found')]
     public function show(int $id): UrlResource
     {
         return UrlResource::make($this->urlService->findUserUrlById(Auth::user(), $id));
@@ -52,6 +53,7 @@ class UrlController extends Controller
     #[Authenticated]
     #[Response(status: ApiResponse::HTTP_NO_CONTENT)]
     #[Response(['message' => 'Unauthenticated.'], ApiResponse::HTTP_UNAUTHORIZED, 'Unauthenticated')]
+    #[Response(status: ApiResponse::HTTP_NOT_FOUND, description: 'Not found')]
     public function destroy(int $id): JsonResponse
     {
         $this->urlService->deleteUserUrl(Auth::user(), $id);
