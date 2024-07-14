@@ -23,4 +23,11 @@ class SlugResolveTest extends TestCase
 
         $response->assertRedirect($url->url);
     }
+
+    public function test_nonexistent_slug_returns_not_found(): void
+    {
+        $response = $this->get(route('slug.resolve', 'fake'));
+
+        $response->assertNotFound();
+    }
 }
