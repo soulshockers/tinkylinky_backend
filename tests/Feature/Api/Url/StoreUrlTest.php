@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Url;
+namespace Tests\Feature\Api\Url;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\WithFaker;
