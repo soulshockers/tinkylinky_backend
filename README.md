@@ -31,7 +31,7 @@ TinkyLinky is a simple URL shortening API built on the Laravel framework. The AP
     
 6. Build docker images and run the project
     ```bash
-    ./vendor/bin/sail up
+    ./vendor/bin/sail up -d
     ```
 
 7. Set up the database:
